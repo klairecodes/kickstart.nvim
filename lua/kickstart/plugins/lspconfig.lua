@@ -177,17 +177,41 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
+        clangd = {},
+        gopls = {},
+        pyright = {},
+        rust_analyzer = {},
+        -- java_language_server = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
+        bashls = {},
+        ast_grep = {},
+        dockerls = {},
+        gradle_ls = {},
+        html = {},
+        eslint = {},
+        kotlin_language_server = {},
+        texlab = {},
+        marksman = {},
+        helm_ls = {},
+        -- nginx_language_server = {},
+        -- nil_ls = {},
+        pbls = {},
+        puppet = {},
+        -- salt_ls = {},
+        css_variables = {},
+        sqlls = {},
+        terraformls = {},
+        taplo = {},
+        vhdl_ls = {},
+        vimls = {},
+        lemminx = {},
+        gitlab_ci_ls = {},
         --
 
         lua_ls = {
@@ -233,6 +257,7 @@ return {
             require('lspconfig')[server_name].setup(server)
           end,
         },
+        automatic_installation = true,
       }
     end,
   },

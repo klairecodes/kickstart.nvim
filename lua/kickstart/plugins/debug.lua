@@ -23,6 +23,8 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'sakhnik/nvim-gdb',
+    'mfussenegger/nvim-dap-python',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -95,6 +97,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'nvim-gdb',
       },
     }
 
@@ -144,5 +147,9 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+    -- Install python specific config
+    require('dap-python').setup 'python3'
+    -- If using the above, then `python3 -m debugpy --version`
+    -- must work in the shell
   end,
 }
