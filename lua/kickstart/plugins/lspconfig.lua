@@ -150,6 +150,9 @@ return {
         end,
       })
 
+      -- Disable focus on diagnostic dialog
+      vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float({scope="line", focusable = false})]]
+
       -- Change diagnostic symbols in the sign column (gutter)
       -- if vim.g.have_nerd_font then
       --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }

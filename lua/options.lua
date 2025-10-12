@@ -20,7 +20,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  -- vim.opt.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -63,3 +63,16 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Klaire Options --
+
+-- Filetype specific options
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '*' },
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    if ft == '.md' or '.tex' then
+      vim.opt.linebreak = true
+    end
+  end,
+})
